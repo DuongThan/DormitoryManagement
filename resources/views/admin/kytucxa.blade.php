@@ -1,4 +1,4 @@
-@extends('admin.template')
+@extends('admin.layout')
 @section("content")
 <section class="content">
     <div class="header">
@@ -13,4 +13,11 @@
 <script>
     $("#li_kytucxa").addClass('active')
 </script>
+@endsection
+
+
+@extends('admin.layout')
+@section("content")
+
+
 @endsection

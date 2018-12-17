@@ -11,6 +11,10 @@ class HomeController extends Controller
         return view('admin/kytucxa');
     }
 
+    public function dashBoard(){
+        return view('admin/DashBoard');
+    }
+
     public function capnhatkytucxa(){
         return view('admin/kytucxa');
     }

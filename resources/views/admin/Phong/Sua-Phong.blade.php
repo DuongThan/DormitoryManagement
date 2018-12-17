@@ -1,0 +1,55 @@
+@extends('admin.layout')
+@section("content")
+
+<div id="content-header">
+    <div id="breadcrumb"> <a href="?page=dashboard" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+            Home</a> <a href="#" class="current">Sửa Phòng</a> </div>
+    <h1>Sửa Phòng</h1>
+</div>
+<!--End-breadcrumbs-->
+<!--Action boxes-->
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                    <h5>Sửa Phòng</h5>
+                </div>
+                @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $err)
+                    {{$err}} <br>
+                    @endforeach
+                </div>
+                @endif
+                @if(session('thongbao'))
+                <div class="alert alert-success">
+                    {{session('thongbao')}}
+                </div>
+                @endif
+                <div class="widget-content nopadding">
+                    <form action="/admin/phong/putphong/{{$phong->id}}" method="POST" class="form-horizontal">
+                      <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <div class="control-group">
+                            <label class="control-label">Mã Phòng :</label>
+                            <div class="controls">
+                                <input class="span1 text-center" value="{{$phong->id}}" disabled name="maphong">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Phòng</label>
+                            <div class="controls">
+                                <input class="span2 text-center phong" value="{{$phong->tenphong}}" required
+                                    name="tenphong">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" name="btnSuaPhong" class="btn btn-success">Sửa</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

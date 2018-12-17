@@ -6,9 +6,53 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('login','admin\HomeController@Login');
     Route::post('login','admin\HomeController@postLogin');
     Route::get('logout','admin\HomeController@Logout');
-
-    Route::get('', 'admin\HomeController@kytucxa');
     
+    Route::get('', 'admin\HomeController@kytucxa');
+    Route::get('dashBoard', 'admin\HomeController@dashBoard');
+    
+    // Quản lý sinh viên
+    Route::group(['prefix'=>'sinhvien'],function(){
+        Route::get('','admin\SinhvienController@sinhvien');
+        Route::get('them-sinh-vien','admin\SinhvienController@themsinhvien');
+        Route::get('sua-sinh-vien/{id}','admin\SinhvienController@suasinhvien');
+        Route::post('postsinhvien','admin\SinhvienController@postsinhvien');
+        Route::post('putsinhvien/{id}','admin\SinhvienController@putsinhvien');
+        Route::get('xoa-sinh-vien/{id}','admin\SinhvienController@xoasinhvien');
+    });
+
+    // Quản lý phòng
+    Route::group(['prefix'=>'phong'],function(){
+        Route::get('','admin\PhongController@phong');
+        Route::get('them-phong','admin\PhongController@themphong');
+        Route::post('postphong','admin\PhongController@postphong');
+        Route::get('sua-phong/{id}','admin\PhongController@suaphong');
+        Route::post('putphong/{id}','admin\PhongController@putphong');
+        Route::get('xoa-phong/{id}','admin\PhongController@xoaphong');
+        Route::get('xem/{id}','admin\PhongController@xemphong');
+    });
+
+    // Quản lý lớp
+    Route::group(['prefix'=>'lop'],function(){
+        Route::get('','admin\LopController@lop');
+        Route::post('postlop','admin\LopController@postlop');
+        Route::get('sua-lop/{id}','admin\LopController@sualop');
+        Route::post('putlop/{id}','admin\LopController@putlop');
+        Route::get('xoa-lop/{id}','admin\LopController@xoalop');
+    });
+
+    // Quản lý điện nước
+    Route::group(['prefix'=>'diennuoc'],function(){
+        Route::get('','admin\DiennuocController@diennuoc');
+        Route::get('them-dien-nuoc','admin\DiennuocController@themdiennuoc');
+        Route::get('capnhatdiennuoc','admin\DiennuocController@capnhatdiennuoc');
+        Route::post('capnhatdien','admin\DiennuocController@putgiadien');
+        Route::post('capnhatnuoc','admin\DiennuocController@putgianuoc');
+    });
+
+
+
+
+
     // Thông tin ký túc xá
     Route::group(['prefix'=>'kytucxa'],function(){
         Route::get('','admin\HomeController@kytucxa');
