@@ -87,8 +87,8 @@
             </li>
             <li class="submenu open"><a href="#"><i class="icon icon-th"></i> <span>Hóa Đơn</span></a>
                 <ul>
-                    <li><a href="?page=Them-HD">Thêm Hóa Đơn</a></li>
-                    <li><a href="?page=QL-HD">Quản lí Hóa Đơn </a></li>
+                    <li><a href="/admin/hoadon/them-hoa-don">Thêm Hóa Đơn</a></li>
+                    <li><a href="/admin/hoadon">Quản lí Hóa Đơn </a></li>
                 </ul>
             </li>
         </ul>

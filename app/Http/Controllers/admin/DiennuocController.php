@@ -114,6 +114,21 @@ class DiennuocController extends Controller
                     'phongnuoc'=>$phongnuoc,'diens'=>$diens,'nuocs'=>$nuocs]);
     }
     public function putphongdiennuoc($id,Request $request){
+        $phongdien = Phongdien::where('idphongdiennuoc',$id)->first();
+        $phongnuoc = Phongnuoc::where('idphongdiennuoc',$id)->first();
+        $dien = Dien::find($request->DonGiaDien);
+        $nuoc = Nuoc::find($request->DonGiaNuoc);
+
+        $phongdien->chisocuoi = $request->ChiSoCuoiD;
+        $phongdien->iddien = $request->DonGiaDien;
+        $phongdien->thanhtien = ($request->ChiSoCuoiD - $phongdien->chisodau) * $dien->dongia;
+        
+        $phongnuoc->chisocuoi = $request->ChiSoCuoiN;
+        $phongnuoc->idnuoc = $request->DonGiaNuoc;
+        $phongnuoc->thanhtien = ($request->ChiSoCuoiN - $phongnuoc->chisodau) * $nuoc->dongia;
+
+        $phongdien->save();
+        $phongnuoc->save();
         return redirect('/admin/diennuoc/sua-dien-nuoc/'.$id)->with("thongbao","Cập nhật thành công");
     }
 }

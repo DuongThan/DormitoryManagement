@@ -53,6 +53,13 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('putphongdiennuoc/{id}','admin\DiennuocController@putphongdiennuoc');
     });
 
+    // Quản lý hóa đơn
+    Route::group(['prefix'=>'hoadon'],function(){
+        Route::get('','admin\HoadonController@hoadon');
+        Route::get('them-hoa-don','admin\HoadonController@themhoadon');
+        Route::post('postHoadon','admin\HoadonController@posthoadon');
+        Route::get('xoa-hoa-don/{id}','admin\HoadonController@xoahoadon');
+    });
 
 
 
