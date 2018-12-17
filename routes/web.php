@@ -47,6 +47,10 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('capnhatdiennuoc','admin\DiennuocController@capnhatdiennuoc');
         Route::post('capnhatdien','admin\DiennuocController@putgiadien');
         Route::post('capnhatnuoc','admin\DiennuocController@putgianuoc');
+        Route::post('postDiennuoc','admin\DiennuocController@postDiennuoc');
+        Route::get('xoa-dien-nuoc/{id}','admin\DiennuocController@xoaDiennuoc');
+        Route::get('sua-dien-nuoc/{id}','admin\DiennuocController@suaDiennuoc');
+        Route::post('putphongdiennuoc/{id}','admin\DiennuocController@putphongdiennuoc');
     });
 
 

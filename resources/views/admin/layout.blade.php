@@ -17,6 +17,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.css" />
+    <script src="/js/jquery.min.js"></script>
     <script>
         function deleteAction(){
 		return confirm("Bạn có muốn xóa mục này");
@@ -101,7 +102,6 @@
     <div class="row-fluid">
         <div id="footer" class="span12"> 2013-{{date('Y')}} &copy; Matrix Admin.</a> </div>
     </div>
-    <script src="/js/jquery.min.js"></script>
     <script src="/js/jquery.ui.custom.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.ui.custom.js"></script>
