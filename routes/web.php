@@ -89,12 +89,12 @@ Route::group(['prefix'=>'admin'],function(){
 
     // Quản trị tài khoản
     Route::group(['prefix'=>'user'],function(){
-        Route::get('','admin\UserController@getUser');
-        Route::get('add','admin\UserController@addUser');
-        Route::post('post','admin\UserController@postUser');
-        Route::get('edit/{userName}','admin\UserController@editUser');
-        Route::post('put/{userName}','admin\UserController@putUser');
-        Route::get('delete/{userName}','admin\UserController@deleteUser');
+        Route::get('','admin\NguoidungController@getUser');
+        Route::get('add','admin\NguoidungController@addUser');
+        Route::post('post','admin\NguoidungController@postUser');
+        Route::get('edit/{userName}','admin\NguoidungController@editUser');
+        Route::post('put/{userName}','admin\NguoidungController@putUser');
+        Route::get('delete/{userName}','admin\NguoidungController@deleteUser');
     });
 });
 

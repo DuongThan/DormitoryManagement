@@ -63,21 +63,21 @@
         <ul>
 
             <li class="active"><a href="/admin"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
-            <li class="submenu open"> <a href="#"><i class="icon icon-th-list"></i> <span>Sinh Viên</span> </a>
+            <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Sinh Viên</span> </a>
                 <ul>
                     <li><a href="/admin/sinhvien/them-sinh-vien">Thêm Sinh Viên</a></li>
                     <li><a href="/admin/sinhvien">Quản lí Sinh Viên </a></li>
                     <li><a href="/admin/lop">Quản lí Lớp </a></li>
                 </ul>
             </li>
-            <li class="submenu open"> <a href="?page=QL-Phong"><i class="icon icon-inbox"></i> <span>Phòng</span></a>
+            <li class="submenu"> <a href="?page=QL-Phong"><i class="icon icon-inbox"></i> <span>Phòng</span></a>
                 <ul>
                     <li><a href="/admin/phong/them-phong">Thêm Phòng</a></li>
                     <li><a href="/admin/phong">Quản lí Phòng </a></li>
 
                 </ul>
             </li>
-            <li class="submenu open"> <a href="#"><i class="icon icon-th-list"></i> <span>Điện Nước</span> </a>
+            <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Điện Nước</span> </a>
                 <ul>
                     <li><a href="/admin/diennuoc/them-dien-nuoc">Thêm Điện Nước</a></li>
                     <li><a href="/admin/diennuoc">Quản lí Điện Nước </a></li>
@@ -85,7 +85,7 @@
 
                 </ul>
             </li>
-            <li class="submenu open"><a href="#"><i class="icon icon-th"></i> <span>Hóa Đơn</span></a>
+            <li class="submenu"><a href="#"><i class="icon icon-th"></i> <span>Hóa Đơn</span></a>
                 <ul>
                     <li><a href="/admin/hoadon/them-hoa-don">Thêm Hóa Đơn</a></li>
                     <li><a href="/admin/hoadon">Quản lí Hóa Đơn </a></li>
@@ -94,6 +94,7 @@
             <li><a href="/admin/slideshow"><i class="icon icon-home"></i> SlideShow </a></li>
             <li><a href="/admin/baiviet"><i class="icon icon-file"></i> Bài viết </a></li>
             <li><a href="/admin/lienhe"><i class="icon icon-phone"></i> Liên hệ </a></li>
+            <li><a href="/admin/user"><i class="fa fa-users"></i> Người dùng </a></li>
         </ul>
     </div>
     <!--sidebar-menu-->
