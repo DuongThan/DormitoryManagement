@@ -8,10 +8,12 @@ use App\Sinhvien;
 use App\Tinhthanh;
 use App\Lop;
 use App\Phong;
-
+use Session;
 class SinhvienController extends Controller
 {
     public function sinhvien(){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $sinhviens = Sinhvien::join('lop','lop.id','=','sinhvien.idlop')
                     ->join('phong','phong.id','=','sinhvien.idphong')
                     ->join('tinhthanh','tinhthanh.id','=','sinhvien.noisinh')
@@ -20,6 +22,8 @@ class SinhvienController extends Controller
         return view("admin/sinhvien/ql-sv",['sinhviens'=>$sinhviens]);
     }
     public function themsinhvien(){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $tinhthanhs = Tinhthanh::all();
         $lops = Lop::all();
         $phongs = Phong::all();
@@ -60,6 +64,8 @@ class SinhvienController extends Controller
         }
     }
     public function suasinhvien($id){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $sinhvien = Sinhvien::where('id',$id)->first();
         $tinhthanhs = Tinhthanh::all();
         $lops = Lop::all();
@@ -67,6 +73,8 @@ class SinhvienController extends Controller
         return view('admin/sinhvien/Sua-Sv',['sinhvien'=>$sinhvien,'phongs'=>$phongs,'lops'=>$lops,'tinhthanhs'=>$tinhthanhs]);
     }
     public function xoasinhvien($id,Request $request){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $sinhvien = Sinhvien::find($id);
         if($sinhvien != null)
             $sinhvien->delete();

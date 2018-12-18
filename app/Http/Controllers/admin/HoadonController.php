@@ -10,11 +10,13 @@ use Carbon\Carbon;
 use App\Phongdien;
 use App\Phongnuoc;
 use App\PhongDiennuoc;
-
+use Session;
 
 class HoadonController extends Controller
 {
     public function hoadon(){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $hoadons = Hoadon::orderBy('ngaylap','desc')
                     ->join('phong','phong.id','=','hoadon.idphong')
                     ->select('hoadon.*','phong.tenphong')
@@ -22,6 +24,8 @@ class HoadonController extends Controller
         return view("admin/hoadon/QL-HD",['hoadons'=>$hoadons]);
     }
     public function themhoadon(){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $phongs = Phong::all();
         return view("admin/hoadon/Them-HD",['phongs'=>$phongs]);
     }
@@ -60,6 +64,8 @@ class HoadonController extends Controller
         }
     }
     public function xoahoadon($id){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $hoadon = Hoadon::where('sohoadon',$id);
         $hoadon->delete();
         return redirect("admin/hoadon")->with("thongbao","Xóa thành công");

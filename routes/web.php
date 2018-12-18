@@ -3,12 +3,11 @@
 // admin quản trị
 Route::group(['prefix'=>'admin'],function(){
     
-    Route::get('login','admin\HomeController@Login');
-    Route::post('login','admin\HomeController@postLogin');
-    Route::get('logout','admin\HomeController@Logout');
+    Route::get('login','admin\DangnhapController@Login');
+    Route::post('login','admin\DangnhapController@postLogin');
+    Route::get('logout','admin\DangnhapController@Logout');
     
-    Route::get('', 'admin\HomeController@kytucxa');
-    Route::get('dashBoard', 'admin\HomeController@dashBoard');
+    Route::get('', 'admin\HomeController@dashBoard');
     
     // Quản lý sinh viên
     Route::group(['prefix'=>'sinhvien'],function(){
@@ -61,13 +60,14 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('xoa-hoa-don/{id}','admin\HoadonController@xoahoadon');
     });
 
-
-
-
-    // Thông tin ký túc xá
-    Route::group(['prefix'=>'kytucxa'],function(){
-        Route::get('','admin\HomeController@kytucxa');
-        Route::post('capnhat','admin\HomeController@capnhatkytucxa');
+    // Quản lý slideshow
+    Route::group(['prefix'=>'slideshow'],function(){
+        Route::get('','admin\SlideController@getSlideShow');
+        Route::get('add','admin\SlideController@addSlideShow');
+        Route::post('post','admin\SlideController@postSlideShow');
+        Route::get('edit/{id}','admin\SlideController@editSlideShow');
+        Route::post('put/{id}','admin\SlideController@putSlideShow');
+        Route::get('delete/{id}','admin\SlideController@deleteSlideShow');
     });
 
     // Bài viết
@@ -75,64 +75,16 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('','admin\BaivietController@baiviet');
         Route::get('them','admin\BaivietController@thembaiviet');
         Route::post('them','admin\BaivietController@themmoibaiviet');
-        Route::get('sua','admin\BaivietController@suabaiviet');
-        Route::post('sua','admin\BaivietController@capnhatbaiviet');
-        Route::post('xoa','admin\BaivietController@xoabaiviet');
-        Route::get('danhmucbaiviet','admin\BaivietController@danhmucbaiviet');
-    });
-
-    // Quản trị loại phòng
-    Route::group(['prefix'=>'roomtype'],function(){
-        Route::get('','admin\RoomTypeController@getRoomType');
-        Route::get('add','admin\RoomTypeController@addRoomType');
-        Route::post('post','admin\RoomTypeController@postRoomType');
-        Route::get('edit/{roomTypeId}','admin\RoomTypeController@editRoomType');
-        Route::post('put/{roomTypeId}','admin\RoomTypeController@putRoomType');
-        Route::get('delete/{roomTypeId}','admin\RoomTypeController@deleteRoomType');
-
-        Route::get('roomtype-price','admin\RoomTypeController@getRoomTypePrice');
-        Route::get('set-price/{roomTypeId}','admin\RoomTypeController@editRoomTypePrice');
-        Route::post('putPrice/{roomTypeId}','admin\RoomTypeController@putRoomTypePrice');
-    });
-
-
-    // Quản trị booking
-    Route::group(['prefix'=>'booking'],function(){
-        Route::get('','admin\BookingController@getBooking');
-        Route::get('edit/{bookingId}','admin\BookingController@editBooking');
-        Route::post('put/{bookingId}','admin\BookingController@putBooking');
-        Route::get('diagram','admin\BookingController@getDiagramBooking');
-        Route::post('quick-book','admin\BookingController@postQuickBooking');
-        Route::post('quick-checkout','admin\BookingController@postCheckoutBooking');
-        Route::post('quick-checkin','admin\BookingController@postCheckinBooking');
+        Route::get('sua/{id}','admin\BaivietController@suabaiviet');
+        Route::post('sua/{id}','admin\BaivietController@capnhatbaiviet');
+        Route::get('xoa/{id}','admin\BaivietController@xoabaiviet');
     });
 
     // Quản trị thông tin lien he
-    Route::group(['prefix'=>'contact'],function(){
-        Route::get('','admin\ContactController@getContact');
-        Route::get('edit/{contactId}','admin\ContactController@editContact');
-        Route::get('delete/{contactId}','admin\ContactController@deleteContact');
-    });
-
-    
-    // Quản trị phòng
-    Route::group(['prefix'=>'room'],function(){
-        Route::get('','admin\RoomController@getRoom');
-        Route::get('add','admin\RoomController@addRoom');
-        Route::post('post','admin\RoomController@postRoom');
-        Route::get('edit/{roomId}','admin\RoomController@editRoom');
-        Route::post('put/{roomId}','admin\RoomController@putRoom');
-        Route::get('delete/{roomId}','admin\RoomController@deleteRoom');
-    });
-
-    // Quản trị Slideshow
-    Route::group(['prefix'=>'slideshow'],function(){
-        Route::get('','admin\SlideShowController@getSlideShow');
-        Route::get('add','admin\SlideShowController@addSlideShow');
-        Route::post('post','admin\SlideShowController@postSlideShow');
-        Route::get('edit/{slideShowId}','admin\SlideShowController@editSlideShow');
-        Route::post('put/{slideShowId}','admin\SlideShowController@putSlideShow');
-        Route::get('delete/{slideShowId}','admin\SlideShowController@deleteSlideShow');
+    Route::group(['prefix'=>'lienhe'],function(){
+        Route::get('','admin\LienheController@getLienhe');
+        Route::get('edit/{id}','admin\LienheController@editLienhe');
+        Route::get('delete/{id}','admin\LienheController@deleteLienhe');
     });
 
     // Quản trị tài khoản
@@ -147,18 +99,10 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 // Website
-Route::get('','BookingController@Index');
-Route::get('gioi-thieu','HomeController@Index');
+Route::get('','TrangchuController@Index');
+Route::get('danh-muc/{id}','TintucController@danhmuc');
+Route::get('gioi-thieu','TintucController@gioithieu');
+Route::get('chi-tiet-tin-tuc/{id}','TintucController@chitiettintuc');
 
-Route::get('dat-phong','BookingController@Index');
-Route::post('search','BookingController@Search');
-
-Route::post('saveSessionBooking','BookingController@SaveSessionBooking');
-Route::get('confirm','BookingController@ConfirmBooking');
-Route::post('postBooking','BookingController@PostBooking');
-Route::get('lien-he','ContactController@Index');
-Route::post('postContact','ContactController@PostContact');
-
-Route::get('/', function () {
-    return view('admin/template');
-});
+Route::get('lien-he','LienheController@lienhe');
+Route::post('postlienhe','LienheController@postlienhe');

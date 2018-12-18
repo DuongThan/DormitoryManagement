@@ -45,10 +45,10 @@
                     <li class="divider"></li>
                     <li class="divider"></li>
                     <li><a href="?page=Doi-MK"><i class="icon-key"></i> Đổi mật khẩu</a></li>
-                    <li><a href="logout.php"><i class="icon icon-share-alt"></i> Logout</a></li>
+                    <li><a href="/admin/logout"><i class="icon icon-share-alt"></i> Logout</a></li>
                 </ul>
             </li>
-            <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+            <li class=""><a title="" href="/admin/logout"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
         </ul>
     </div>
     <!--close-top-Header-menu-->
@@ -62,7 +62,7 @@
     <div id="sidebar"><a href="" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
         <ul>
 
-            <li class="active"><a href="?page=dashboard"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+            <li class="active"><a href="/admin"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
             <li class="submenu open"> <a href="#"><i class="icon icon-th-list"></i> <span>Sinh Viên</span> </a>
                 <ul>
                     <li><a href="/admin/sinhvien/them-sinh-vien">Thêm Sinh Viên</a></li>
@@ -91,6 +91,9 @@
                     <li><a href="/admin/hoadon">Quản lí Hóa Đơn </a></li>
                 </ul>
             </li>
+            <li><a href="/admin/slideshow"><i class="icon icon-home"></i> SlideShow </a></li>
+            <li><a href="/admin/baiviet"><i class="icon icon-file"></i> Bài viết </a></li>
+            <li><a href="/admin/lienhe"><i class="icon icon-phone"></i> Liên hệ </a></li>
         </ul>
     </div>
     <!--sidebar-menu-->

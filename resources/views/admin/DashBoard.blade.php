@@ -10,12 +10,12 @@
 <div class="container-fluid">
     <div class="quick-actions_homepage">
         <ul class="quick-actions">
-            <li class="bg_lb"> <a href="index.php"> <i class="icon-dashboard"></i> My Dashboard </a> </li>
-            <li class="bg_lo"> <a href="?page=QL-Sv"> <i class="icon-user"></i> Sinh Viên</a> </li>
-            <li class="bg_ly"> <a href="?page=QL-Phong"> <i class="icon-inbox"></i> Phòng </a> </li>
-            <li class="bg_ls"> <a href="?page=QL-DN"> <i class="icon-tint"></i>Điện Nước</a> </li>
-            <li class="bg_lo"> <a href="?page=QL-HD"> <i class="icon-fullscreen"></i>Hóa Đơn</a> </li>
-            <li class="bg_lg"> <a href="?page=QL-Lop"> <i class="icon-signal"></i> Lớp</a> </li>
+            <li class="bg_lb"> <a href="/admin"> <i class="icon-dashboard"></i> My Dashboard </a> </li>
+            <li class="bg_lo"> <a href="/admin/sinhvien"> <i class="icon-user"></i> Sinh Viên</a> </li>
+            <li class="bg_ly"> <a href="/admin/phong"> <i class="icon-inbox"></i> Phòng </a> </li>
+            <li class="bg_ls"> <a href="/admin/diennuoc"> <i class="icon-tint"></i>Điện Nước</a> </li>
+            <li class="bg_lo"> <a href="/admin/hoadon"> <i class="icon-fullscreen"></i>Hóa Đơn</a> </li>
+            <li class="bg_lg"> <a href="/admin/lop"> <i class="icon-signal"></i> Lớp</a> </li>
         </ul>
     </div>
     <!--End-Action boxes-->

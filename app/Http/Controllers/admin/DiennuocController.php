@@ -11,10 +11,12 @@ use Carbon\Carbon;
 use App\Phongdien;
 use App\Phongnuoc;
 use App\PhongDiennuoc;
-
+use Session;
 class DiennuocController extends Controller
 {
     public function diennuoc(){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $diens = PhongDiennuoc::orderBy('thangghi','desc')
                         ->join('phong','phong.id','=','Phong_diennuoc.idphong')
                         ->join('phong_dien','phong_dien.idphongdiennuoc','=','Phong_diennuoc.id')
@@ -34,10 +36,14 @@ class DiennuocController extends Controller
         return view('admin/diennuoc/QL-DN',['diens'=>$diens,'nuocs'=>$nuocs]);
     }
     public function themdiennuoc(){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $phongs = Phong::all();
         return view('admin/diennuoc/Them-DN',['phongs'=>$phongs]);
     }
     public function capnhatdiennuoc(){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $dien = Dien::orderBy('ngaycapnhat','desc')->first();
         $nuoc = Nuoc::orderBy('ngaycapnhat','desc')->first();
         return view('admin/diennuoc/Update-DonGia',['dien'=>$dien,'nuoc'=>$nuoc]);
@@ -99,11 +105,15 @@ class DiennuocController extends Controller
         return redirect('/admin/diennuoc/them-dien-nuoc')->with("thongbao","Thêm điện nước thành công");
     }
     public function xoaDiennuoc($id){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $phongdiennuoc = Phongdiennuoc::find($id);
         $phongdiennuoc->delete();
         return redirect('/admin/diennuoc')->with('thongbao','Xóa thành công');
     }
     public function suaDiennuoc($id){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $phongdiennuoc = PhongDiennuoc::find($id);
         $phong = Phong::find($phongdiennuoc->idphong);
         $phongdien = Phongdien::where('idphongdiennuoc',$phongdiennuoc->id)->first();

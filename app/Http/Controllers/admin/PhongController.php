@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Phong;
 use App\Sinhvien;
-
+use Session;
 class PhongController extends Controller
 {
     public function phong(){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $phongs = Phong::all();
         foreach($phongs as $phong){
             $sosinhvien = count(Sinhvien::where('idphong',$phong->id)->get());
@@ -22,10 +24,14 @@ class PhongController extends Controller
         return view("admin/phong/QL-Phong",['phongs'=>$phongs]);
     }
     public function themphong(){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         return view("admin/phong/Them-Phong");
     }
     
     public function suaphong($id){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $phong = Phong::find($id);
         return view("admin/phong/Sua-Phong",['phong'=>$phong]);
     }
@@ -68,11 +74,15 @@ class PhongController extends Controller
         }
     }
     public function xoaphong($id){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $phong = Phong::find($id);
         $phong->delete();
         return redirect("admin/phong")->with("thongbao","Xóa thành công");
     }
     public function xemphong($id){
+        if(!Session::has('trangthaudangnhap'))
+            return redirect('/admin/login')->with('notification','Phiên đăng nhập của bạn đã hết');
         $sinhviens = Sinhvien::join('lop','lop.id','=','sinhvien.idlop')
                     ->join('tinhthanh','tinhthanh.id','=','sinhvien.noisinh')
                     ->where("Sinhvien.idPhong",$id)
