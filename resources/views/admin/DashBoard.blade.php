@@ -36,22 +36,22 @@
                     <div class="span5">
                         <!-- span5--->
                         <ul class="site-stats">
-                            <li class="bg_lh"><i class="icon-user"></i> <strong>5</strong> <small>Tổng số Sinh Viên</small></li>
-                            <li class="bg_lh"><i class="icon-plus"></i> <strong>7</strong> <small>Lớp </small></li>
-                            <li class="bg_lh"><i class="icon-inbox"></i> <strong>18</strong> <small>Tổng Số Phòng</small></li>
-                            <li class="bg_lh"><i class="icon-inbox"></i> <strong>1</strong> <small>Tổng Số Phòng Đầy</small></li>
-                            <li class="bg_lh"><i class="icon-fullscreen"></i> <strong>0</strong> <small>Tổng Số Hóa Đơn</small></li>
-                            <li class="bg_lh"><i class="icon-fullscreen"></i> <strong>0</strong> <small>Tổng Đã Hóa Đơn Tháng 12</small></li>
+                            <li class="bg_lh"><i class="icon-user"></i> <strong>{{$tongsosinhvien}}</strong> <small>Tổng số Sinh Viên</small></li>
+                            <li class="bg_lh"><i class="icon-plus"></i> <strong>{{$tongsolop}}</strong> <small>Lớp </small></li>
+                            <li class="bg_lh"><i class="icon-inbox"></i> <strong>{{$tongsophong}}</strong> <small>Tổng Số Phòng</small></li>
+                            <li class="bg_lh"><i class="icon-inbox"></i> <strong>{{$tongsophongday}}</strong> <small>Tổng Số Phòng Đầy</small></li>
+                            <li class="bg_lh"><i class="icon-fullscreen"></i> <strong>{{$tongsohoadon}}</strong> <small>Tổng Số Hóa Đơn</small></li>
+                            <li class="bg_lh"><i class="icon-fullscreen"></i> <strong>{{$tongsohoadonthangnay}}</strong> <small>Tổng Đã Hóa Đơn Tháng 12</small></li>
                         </ul>
                     </div><!-- span5--->
                     <!-- Tyle phan tram --->
                     <div class="widget-content span7">
                         <ul class="unstyled">
-                            <li> <span class="icon24 icomoon-icon-arrow-up-2 green"></span> 94.44% Phòng Trống <span
+                            <li> <span class="icon24 icomoon-icon-arrow-up-2 green"></span> {{$tylephongtrong}}% Phòng Trống <span
                                     class="pull-right strong">
-                                    18 </span>
+                                    {{$sophongtrong}} </span>
                                 <div class="progress progress-striped ">
-                                    <div style="width: 94.44%;" class="bar"></div>
+                                    <div style="width: {{$tylephongtrong}}%;" class="bar"></div>
                                 </div>
                             </li>
 
